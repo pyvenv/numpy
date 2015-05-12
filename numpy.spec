@@ -156,10 +156,6 @@ ln -s f2py f2py.numpy
 popd &> /dev/null
 install -D -p -m 0644 doc/f2py/f2py.1 %{buildroot}%{_mandir}/man1/f2py.1
 
-#symlink for includes, BZ 185079
-mkdir -p %{buildroot}/usr/include
-ln -s %{python_sitearch}/numpy/core/include/numpy/ %{buildroot}/usr/include/numpy
-
 
 %check
 pushd doc &> /dev/null
@@ -201,7 +197,6 @@ popd &> /dev/null
 %{python_sitearch}/numpy/matrixlib
 %{python_sitearch}/numpy/polynomial
 %{python_sitearch}/numpy-*.egg-info
-%{_includedir}/numpy
 
 %files f2py
 %doc doc/f2py/*.txt
